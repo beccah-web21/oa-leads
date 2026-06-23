@@ -636,10 +636,10 @@ ul {
 }
 
 /* Dashboard View */
-.dashboard-view .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
+.dashboard-view .container {
+  max-width: none;
+  width: 100%;
+  padding: 0;
 }
 
 .nav-active {
