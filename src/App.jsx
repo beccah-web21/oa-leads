@@ -37,26 +37,47 @@ const CATEGORIES = [
 ]
 
 const PRODUCTS = [
-  { id: 1, category: 'Home & Kitchen', asin: 'B08N5KWB9H', name: 'Stainless Steel Kitchen Utensil Set', retailer: 'Walmart', retailerPrice: 12.99, amazonPrice: 27.99, fee: 6.40, profit: 8.60, roi: 66, rating: 4.5, reviews: 1243, bsr: 4521, buybox: true, amazonSeller: true, thirdParty: 3, privateLabel: false, fulfillment: 'FBA', image: null },
-  { id: 2, category: 'Toys & Games', asin: 'B09XYZ1234', name: 'Magnetic Building Blocks 100-Piece', retailer: 'Target', retailerPrice: 8.50, amazonPrice: 22.99, fee: 5.20, profit: 9.29, roi: 109, rating: 4.7, reviews: 892, bsr: 2103, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
-  { id: 3, category: 'Sports & Outdoors', asin: 'B07ABC5678', name: 'Adjustable Camping Hammock', retailer: 'Home Depot', retailerPrice: 18.99, amazonPrice: 34.99, fee: 7.80, profit: 8.20, roi: 43, rating: 4.3, reviews: 567, bsr: 8932, buybox: false, amazonSeller: true, thirdParty: 5, privateLabel: false, fulfillment: 'FBM', image: null },
-  { id: 4, category: 'Beauty & Personal Care', asin: 'B08DEF9012', name: 'Korean Skincare Sheet Mask Pack', retailer: 'CVS', retailerPrice: 5.99, amazonPrice: 14.99, fee: 3.50, profit: 5.50, roi: 92, rating: 4.6, reviews: 2341, bsr: 1245, buybox: true, amazonSeller: false, thirdParty: 1, privateLabel: true, fulfillment: 'FBA', image: null },
-  { id: 5, category: 'Pet Supplies', asin: 'B06GHIJ3456', name: 'Orthopedic Dog Bed Large', retailer: 'Chewy', retailerPrice: 22.49, amazonPrice: 44.99, fee: 9.10, profit: 13.40, roi: 60, rating: 4.8, reviews: 4521, bsr: 987, buybox: true, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBA', image: null },
-  { id: 6, category: 'Electronics', asin: 'B05JKL3456', name: 'Wireless Bluetooth Earbuds Pro', retailer: 'Best Buy', retailerPrice: 39.99, amazonPrice: 69.99, fee: 12.50, profit: 17.50, roi: 44, rating: 4.4, reviews: 1567, bsr: 3421, buybox: false, amazonSeller: false, thirdParty: 6, privateLabel: true, fulfillment: 'FBM', image: null },
-  { id: 7, category: 'Home & Kitchen', asin: 'B03MNO7890', name: 'Ceramic Non-Stick Frying Pan 10in', retailer: 'Walmart', retailerPrice: 15.99, amazonPrice: 29.99, fee: 6.80, profit: 7.20, roi: 45, rating: 4.2, reviews: 892, bsr: 5678, buybox: true, amazonSeller: true, thirdParty: 2, privateLabel: false, fulfillment: 'FBA', image: null },
-  { id: 8, category: 'Health & Household', asin: 'B04PQR1234', name: 'Organic Turmeric Supplement 120 Ct', retailer: 'Target', retailerPrice: 9.99, amazonPrice: 19.99, fee: 4.20, profit: 5.80, roi: 58, rating: 4.5, reviews: 1234, bsr: 2345, buybox: true, amazonSeller: false, thirdParty: 3, privateLabel: true, fulfillment: 'FBA', image: null },
-  { id: 9, category: 'Baby', asin: 'B02STU5678', name: 'Convertible Baby Stroller Travel System', retailer: 'Walmart', retailerPrice: 11.49, amazonPrice: 24.99, fee: 5.50, profit: 8.00, roi: 70, rating: 4.6, reviews: 678, bsr: 4567, buybox: false, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBM', image: null },
-  { id: 10, category: 'Automotive', asin: 'B01VWX9012', name: 'Car Phone Mount Magnetic Holder', retailer: 'AutoZone', retailerPrice: 19.99, amazonPrice: 39.99, fee: 8.30, profit: 11.70, roi: 58, rating: 4.7, reviews: 2345, bsr: 1234, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 1, category: 'Home & Kitchen', asin: 'B08N5KWB9H', name: 'Stainless Steel Kitchen Utensil Set', retailer: 'Walmart', retailerPrice: 12.99, amazonPrice: 27.99, fbaPrice: 29.99, fbmPrice: 26.49, fee: 6.40, profit: 8.60, roi: 66, rating: 4.5, reviews: 1243, bsr: 4521, monthlySales: 1200, leadScore: 8, buybox: true, amazonSeller: true, thirdParty: 3, privateLabel: false, fulfillment: 'FBA', image: null },
+  { id: 2, category: 'Toys & Games', asin: 'B09XYZ1234', name: 'Magnetic Building Blocks 100-Piece', retailer: 'Target', retailerPrice: 8.50, amazonPrice: 22.99, fbaPrice: 24.49, fbmPrice: 21.99, fee: 5.20, profit: 9.29, roi: 109, rating: 4.7, reviews: 892, bsr: 2103, monthlySales: 850, leadScore: 9, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 3, category: 'Sports & Outdoors', asin: 'B07ABC5678', name: 'Adjustable Camping Hammock', retailer: 'Home Depot', retailerPrice: 18.99, amazonPrice: 34.99, fbaPrice: 36.49, fbmPrice: 33.99, fee: 7.80, profit: 8.20, roi: 43, rating: 4.3, reviews: 567, bsr: 8932, monthlySales: 320, leadScore: 5, buybox: false, amazonSeller: true, thirdParty: 5, privateLabel: false, fulfillment: 'FBM', image: null },
+  { id: 4, category: 'Beauty & Personal Care', asin: 'B08DEF9012', name: 'Korean Skincare Sheet Mask Pack', retailer: 'CVS', retailerPrice: 5.99, amazonPrice: 14.99, fbaPrice: 16.49, fbmPrice: 14.99, fee: 3.50, profit: 5.50, roi: 92, rating: 4.6, reviews: 2341, bsr: 1245, monthlySales: 2500, leadScore: 7, buybox: true, amazonSeller: false, thirdParty: 1, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 5, category: 'Pet Supplies', asin: 'B06GHIJ3456', name: 'Orthopedic Dog Bed Large', retailer: 'Chewy', retailerPrice: 22.49, amazonPrice: 44.99, fbaPrice: 46.99, fbmPrice: 43.99, fee: 9.10, profit: 13.40, roi: 60, rating: 4.8, reviews: 4521, bsr: 987, monthlySales: 1800, leadScore: 10, buybox: true, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBA', image: null },
+  { id: 6, category: 'Electronics', asin: 'B05JKL3456', name: 'Wireless Bluetooth Earbuds Pro', retailer: 'Best Buy', retailerPrice: 39.99, amazonPrice: 69.99, fbaPrice: 72.49, fbmPrice: 68.99, fee: 12.50, profit: 17.50, roi: 44, rating: 4.4, reviews: 1567, bsr: 3421, monthlySales: 4500, leadScore: 6, buybox: false, amazonSeller: false, thirdParty: 6, privateLabel: true, fulfillment: 'FBM', image: null },
+  { id: 7, category: 'Home & Kitchen', asin: 'B03MNO7890', name: 'Ceramic Non-Stick Frying Pan 10in', retailer: 'Walmart', retailerPrice: 15.99, amazonPrice: 29.99, fbaPrice: 31.49, fbmPrice: 28.99, fee: 6.80, profit: 7.20, roi: 45, rating: 4.2, reviews: 892, bsr: 5678, monthlySales: 980, leadScore: 7, buybox: true, amazonSeller: true, thirdParty: 2, privateLabel: false, fulfillment: 'FBA', image: null },
+  { id: 8, category: 'Health & Household', asin: 'B04PQR1234', name: 'Organic Turmeric Supplement 120 Ct', retailer: 'Target', retailerPrice: 9.99, amazonPrice: 19.99, fbaPrice: 21.49, fbmPrice: 19.49, fee: 4.20, profit: 5.80, roi: 58, rating: 4.5, reviews: 1234, bsr: 2345, monthlySales: 3100, leadScore: 8, buybox: true, amazonSeller: false, thirdParty: 3, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 9, category: 'Baby', asin: 'B02STU5678', name: 'Convertible Baby Stroller Travel System', retailer: 'Walmart', retailerPrice: 11.49, amazonPrice: 24.99, fbaPrice: 26.49, fbmPrice: 24.49, fee: 5.50, profit: 8.00, roi: 70, rating: 4.6, reviews: 678, bsr: 4567, monthlySales: 560, leadScore: 4, buybox: false, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBM', image: null },
+  { id: 10, category: 'Automotive', asin: 'B01VWX9012', name: 'Car Phone Mount Magnetic Holder', retailer: 'AutoZone', retailerPrice: 19.99, amazonPrice: 39.99, fbaPrice: 41.49, fbmPrice: 38.99, fee: 8.30, profit: 11.70, roi: 58, rating: 4.7, reviews: 2345, bsr: 1234, monthlySales: 2200, leadScore: 9, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
 ]
 
 function App() {
   const [showDashboard, setShowDashboard] = useState(false)
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false)
   const [filterAmazon, setFilterAmazon] = useState(false)
   const [filterPrivateLabel, setFilterPrivateLabel] = useState(false)
   const [filterFBA, setFilterFBA] = useState(false)
   const [filterFBM, setFilterFBM] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState('Select All')
   const [searchTerm, setSearchTerm] = useState('')
+  const [bsrMin, setBsrMin] = useState('')
+  const [bsrMax, setBsrMax] = useState('')
+  const [buyBoxMin, setBuyBoxMin] = useState('')
+  const [buyBoxMax, setBuyBoxMax] = useState('')
+  const [offersMin, setOffersMin] = useState('')
+  const [offersMax, setOffersMax] = useState('')
+  const [amazonPriceMin, setAmazonPriceMin] = useState('')
+  const [amazonPriceMax, setAmazonPriceMax] = useState('')
+  const [profitMin, setProfitMin] = useState('')
+  const [profitMax, setProfitMax] = useState('')
+  const [roiMin, setRoiMin] = useState('')
+  const [roiMax, setRoiMax] = useState('')
+  const [monthlySalesMin, setMonthlySalesMin] = useState('')
+  const [monthlySalesMax, setMonthlySalesMax] = useState('')
+  const [leadScoreMin, setLeadScoreMin] = useState('1')
+  const [leadScoreMax, setLeadScoreMax] = useState('10')
+  const [fbaPriceMin, setFbaPriceMin] = useState('')
+  const [fbaPriceMax, setFbaPriceMax] = useState('')
+  const [fbmPriceMin, setFbmPriceMin] = useState('')
+  const [fbmPriceMax, setFbmPriceMax] = useState('')
   const [sortColumn, setSortColumn] = useState(null)
   const [sortDirection, setSortDirection] = useState('asc')
   const [expandedRow, setExpandedRow] = useState(null)
@@ -101,6 +122,26 @@ function App() {
     if (filterPrivateLabel && !product.privateLabel) return false
     if (filterFBA && product.fulfillment !== 'FBA') return false
     if (filterFBM && product.fulfillment !== 'FBM') return false
+    if (bsrMin && product.bsr < parseInt(bsrMin)) return false
+    if (bsrMax && product.bsr > parseInt(bsrMax)) return false
+    if (buyBoxMin && product.retailerPrice < parseFloat(buyBoxMin)) return false
+    if (buyBoxMax && product.retailerPrice > parseFloat(buyBoxMax)) return false
+    if (offersMin && product.thirdParty < parseInt(offersMin)) return false
+    if (offersMax && product.thirdParty > parseInt(offersMax)) return false
+    if (amazonPriceMin && product.amazonPrice < parseFloat(amazonPriceMin)) return false
+    if (amazonPriceMax && product.amazonPrice > parseFloat(amazonPriceMax)) return false
+    if (profitMin && product.profit < parseFloat(profitMin)) return false
+    if (profitMax && product.profit > parseFloat(profitMax)) return false
+    if (roiMin && product.roi < parseInt(roiMin)) return false
+    if (roiMax && product.roi > parseInt(roiMax)) return false
+    if (monthlySalesMin && product.monthlySales < parseInt(monthlySalesMin)) return false
+    if (monthlySalesMax && product.monthlySales > parseInt(monthlySalesMax)) return false
+    if (leadScoreMin && product.leadScore < parseInt(leadScoreMin)) return false
+    if (leadScoreMax && product.leadScore > parseInt(leadScoreMax)) return false
+    if (fbaPriceMin && product.fbaPrice < parseFloat(fbaPriceMin)) return false
+    if (fbaPriceMax && product.fbaPrice > parseFloat(fbaPriceMax)) return false
+    if (fbmPriceMin && product.fbmPrice < parseFloat(fbmPriceMin)) return false
+    if (fbmPriceMax && product.fbmPrice > parseFloat(fbmPriceMax)) return false
 
     return true
   })
@@ -118,7 +159,7 @@ function App() {
   }
 
   const exportToCSV = () => {
-    const headers = ['Product', 'Supplier', 'Category', 'BSR', 'ASIN', 'Cost / Buy Box Price', 'AZPrice', 'Amazon Fees', 'Offers', 'Profit', 'ROI', 'Amazon Seller', 'Private Label', 'Fulfillment']
+    const headers = ['Product', 'Supplier', 'Category', 'BSR', 'ASIN', 'Cost / Buy Box Price', 'AZPrice', 'FBA Price', 'FBM Price', 'Amazon Fees', 'Offers', 'Profit', 'ROI', 'Monthly Sales', 'Lead Score', 'Amazon Seller', 'Private Label', 'Fulfillment']
     const rows = sortedProducts.map(p => [
       p.name,
       p.retailer,
@@ -127,10 +168,14 @@ function App() {
       p.asin,
       p.retailerPrice.toFixed(2),
       p.amazonPrice.toFixed(2),
+      p.fbaPrice.toFixed(2),
+      p.fbmPrice.toFixed(2),
       p.fee.toFixed(2),
       p.thirdParty,
       p.profit.toFixed(2),
       `${p.roi}%`,
+      p.monthlySales,
+      p.leadScore,
       p.amazonSeller ? 'Yes' : 'No',
       p.privateLabel ? 'Yes' : 'No',
       p.fulfillment
@@ -195,7 +240,7 @@ function App() {
                 <input
                   type="text"
                   className="filter-input"
-                  placeholder="Search ASIN, category, retailer..."
+                  placeholder="Search ASIN, Brand, Category, Supplier..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -241,7 +286,271 @@ function App() {
                 </label>
               </div>
               <div className="filter-group">
+                <button className="btn-more-filters" onClick={() => setShowAdvancedFilters(true)}>
+                  More Filters
+                </button>
+              </div>
+              <div className="filter-group">
                 <span className="results-count">{filteredProducts.length} results</span>
+              </div>
+            </div>
+
+            <div className={`filters-drawer ${showAdvancedFilters ? 'open' : ''}`}>
+              <div className="filters-drawer-backdrop" onClick={() => setShowAdvancedFilters(false)}></div>
+              <div className="filters-drawer-panel">
+                <div className="filters-drawer-header">
+                  <h3>Advanced Filters</h3>
+                  <button className="btn-drawer-close" onClick={() => setShowAdvancedFilters(false)}>✕</button>
+                </div>
+                <div className="filters-drawer-content">
+                  <div className="filter-group-vertical">
+                    <label className="filter-label">Category</label>
+                    <select
+                      className="filter-input"
+                      value={selectedCategory}
+                      onChange={(e) => setSelectedCategory(e.target.value)}
+                    >
+                      <option value="Select All">Select All</option>
+                      {CATEGORIES.filter(cat => cat !== 'Select All').map(cat => (
+                        <option key={cat} value={cat}>{cat}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="filter-group-vertical">
+                    <label className="filter-label">Best Sellers Rank</label>
+                    <div className="filter-range">
+                      <input
+                        type="number"
+                        className="filter-input filter-range-input"
+                        placeholder="Min (#)"
+                        value={bsrMin}
+                        onChange={(e) => setBsrMin(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        className="filter-input filter-range-input"
+                        placeholder="Max (#)"
+                        value={bsrMax}
+                        onChange={(e) => setBsrMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="filter-group-vertical">
+                    <label className="filter-label">Amazon Price</label>
+                    <div className="filter-range">
+                      <input
+                        type="number"
+                        step="0.01"
+                        className="filter-input filter-range-input"
+                        placeholder="Min ($)"
+                        value={amazonPriceMin}
+                        onChange={(e) => setAmazonPriceMin(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        step="0.01"
+                        className="filter-input filter-range-input"
+                        placeholder="Max ($)"
+                        value={amazonPriceMax}
+                        onChange={(e) => setAmazonPriceMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                   <div className="filter-group-vertical">
+                     <label className="filter-label">Buy Box Price</label>
+                     <div className="filter-range">
+                       <input
+                         type="number"
+                         step="0.01"
+                         className="filter-input filter-range-input"
+                         placeholder="Min ($)"
+                         value={buyBoxMin}
+                         onChange={(e) => setBuyBoxMin(e.target.value)}
+                       />
+                       <input
+                         type="number"
+                         step="0.01"
+                         className="filter-input filter-range-input"
+                         placeholder="Max ($)"
+                         value={buyBoxMax}
+                         onChange={(e) => setBuyBoxMax(e.target.value)}
+                       />
+                     </div>
+                   </div>
+                   <div className="filter-group-vertical">
+                     <label className="filter-label">FBA Price</label>
+                     <div className="filter-range">
+                       <input
+                         type="number"
+                         step="0.01"
+                         className="filter-input filter-range-input"
+                         placeholder="Min ($)"
+                         value={fbaPriceMin}
+                         onChange={(e) => setFbaPriceMin(e.target.value)}
+                       />
+                       <input
+                         type="number"
+                         step="0.01"
+                         className="filter-input filter-range-input"
+                         placeholder="Max ($)"
+                         value={fbaPriceMax}
+                         onChange={(e) => setFbaPriceMax(e.target.value)}
+                       />
+                     </div>
+                   </div>
+                   <div className="filter-group-vertical">
+                     <label className="filter-label">FBM Price</label>
+                     <div className="filter-range">
+                       <input
+                         type="number"
+                         step="0.01"
+                         className="filter-input filter-range-input"
+                         placeholder="Min ($)"
+                         value={fbmPriceMin}
+                         onChange={(e) => setFbmPriceMin(e.target.value)}
+                       />
+                       <input
+                         type="number"
+                         step="0.01"
+                         className="filter-input filter-range-input"
+                         placeholder="Max ($)"
+                         value={fbmPriceMax}
+                         onChange={(e) => setFbmPriceMax(e.target.value)}
+                       />
+                     </div>
+                   </div>
+                   <div className="filter-group-vertical">
+                     <label className="filter-label">Profit ($)</label>
+                    <div className="filter-range">
+                      <input
+                        type="number"
+                        step="0.01"
+                        className="filter-input filter-range-input"
+                        placeholder="Min"
+                        value={profitMin}
+                        onChange={(e) => setProfitMin(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        step="0.01"
+                        className="filter-input filter-range-input"
+                        placeholder="Max"
+                        value={profitMax}
+                        onChange={(e) => setProfitMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="filter-group-vertical">
+                    <label className="filter-label">ROI (%)</label>
+                    <div className="filter-range">
+                      <input
+                        type="number"
+                        step="1"
+                        className="filter-input filter-range-input"
+                        placeholder="Min"
+                        value={roiMin}
+                        onChange={(e) => setRoiMin(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        step="1"
+                        className="filter-input filter-range-input"
+                        placeholder="Max"
+                        value={roiMax}
+                        onChange={(e) => setRoiMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="filter-group-vertical">
+                    <label className="filter-label">Monthly Sales</label>
+                    <div className="filter-range">
+                      <input
+                        type="number"
+                        step="1"
+                        className="filter-input filter-range-input"
+                        placeholder="Min"
+                        value={monthlySalesMin}
+                        onChange={(e) => setMonthlySalesMin(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        step="1"
+                        className="filter-input filter-range-input"
+                        placeholder="Max"
+                        value={monthlySalesMax}
+                        onChange={(e) => setMonthlySalesMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="filter-group-vertical">
+                    <label className="filter-label">Offer Count</label>
+                    <div className="filter-range">
+                      <input
+                        type="number"
+                        className="filter-input filter-range-input"
+                        placeholder="Min"
+                        value={offersMin}
+                        onChange={(e) => setOffersMin(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        className="filter-input filter-range-input"
+                        placeholder="Max"
+                        value={offersMax}
+                        onChange={(e) => setOffersMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="filter-group-vertical">
+                    <label className="filter-label">Lead Score</label>
+                    <div className="filter-range">
+                      <input
+                        type="number"
+                        min="1"
+                        max="10"
+                        className="filter-input filter-range-input"
+                        placeholder="Min"
+                        value={leadScoreMin}
+                        onChange={(e) => setLeadScoreMin(e.target.value)}
+                      />
+                      <input
+                        type="number"
+                        min="1"
+                        max="10"
+                        className="filter-input filter-range-input"
+                        placeholder="Max"
+                        value={leadScoreMax}
+                        onChange={(e) => setLeadScoreMax(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="filter-drawer-actions">
+                    <button className="btn btn-secondary" onClick={() => {
+                      setBsrMin('')
+                      setBsrMax('')
+                      setBuyBoxMin('')
+                      setBuyBoxMax('')
+                      setOffersMin('')
+                      setOffersMax('')
+                      setAmazonPriceMin('')
+                      setAmazonPriceMax('')
+                      setProfitMin('')
+                      setProfitMax('')
+                      setRoiMin('')
+                      setRoiMax('')
+                      setMonthlySalesMin('')
+                      setMonthlySalesMax('')
+                      setLeadScoreMin('')
+                      setLeadScoreMax('')
+                      setFbaPriceMin('')
+                      setFbaPriceMax('')
+                      setFbmPriceMin('')
+                      setFbmPriceMax('')
+                      setSelectedCategory('Select All')
+                    }}>Clear</button>
+                    <button className="btn btn-primary" onClick={() => setShowAdvancedFilters(false)}>Apply</button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -253,18 +562,7 @@ function App() {
                     <th>Product</th>
                     <th>Supplier</th>
                     <th>ASIN</th>
-                    <th className="th-category">
-                      <select
-                        className="category-dropdown"
-                        value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
-                      >
-                        {CATEGORIES.map(cat => (
-                          <option key={cat} value={cat}>{cat}</option>
-                        ))}
-                      </select>
-                      <span className="th-label">Category</span>
-                    </th>
+                    <th>Category</th>
                     <th className="th-sort">
                       BSR
                       <button className="sort-btn sort-btn-inline" onClick={() => handleSort('bsr')}><SortIcon column="bsr" /></button>
@@ -274,8 +572,10 @@ function App() {
                       <button className="sort-btn sort-btn-inline" onClick={() => handleSort('retailerPrice')}><SortIcon column="retailerPrice" /></button>
                     </th>
                     <th>AZPrice</th>
-                      <th>Amazon Fees</th>
-                      <th>Offers</th>
+                    <th>FBA Price</th>
+                    <th>FBM Price</th>
+                    <th>Amazon Fees</th>
+                    <th>Offers</th>
                     <th className="th-sort">
                       Profit
                       <button className="sort-btn sort-btn-inline" onClick={() => handleSort('profit')}><SortIcon column="profit" /></button>
@@ -283,6 +583,14 @@ function App() {
                     <th className="th-sort">
                       ROI
                       <button className="sort-btn sort-btn-inline" onClick={() => handleSort('roi')}><SortIcon column="roi" /></button>
+                    </th>
+                    <th className="th-sort">
+                      Monthly Sales
+                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('monthlySales')}><SortIcon column="monthlySales" /></button>
+                    </th>
+                    <th className="th-sort">
+                      Lead Score
+                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('leadScore')}><SortIcon column="leadScore" /></button>
                     </th>
                     <th>Actions</th>
                   </tr>
@@ -303,11 +611,15 @@ function App() {
                       <td>{product.category}</td>
                       <td>#{product.bsr.toLocaleString()}</td>
                       <td>${product.retailerPrice.toFixed(2)}</td>
-                       <td>${product.amazonPrice.toFixed(2)}</td>
-                       <td>${product.fee.toFixed(2)}</td>
-                       <td>{product.thirdParty}</td>
+                      <td>${product.amazonPrice.toFixed(2)}</td>
+                      <td>${product.fbaPrice.toFixed(2)}</td>
+                      <td>${product.fbmPrice.toFixed(2)}</td>
+                      <td>${product.fee.toFixed(2)}</td>
+                      <td>{product.thirdParty}</td>
                       <td className="positive">${product.profit.toFixed(2)}</td>
                       <td className={`${product.roi >= 30 ? 'positive' : ''}`}>{product.roi}%</td>
+                      <td>{product.monthlySales.toLocaleString()}</td>
+                      <td className={`${product.leadScore >= 7 ? 'positive' : ''}`}>{product.leadScore}/10</td>
                       <td>
                         <div className="action-buttons">
                           <button
@@ -330,7 +642,7 @@ function App() {
                 </tbody>
                 {expandedRow && (
                   <tr className="expanded-row">
-                     <td colSpan="13">
+                     <td colSpan="17">
                       <div className="expanded-panel">
                         <div className="expanded-header">
                           <span className="expanded-asin">ASIN: {PRODUCTS.find(p => p.id === expandedRow)?.asin}</span>

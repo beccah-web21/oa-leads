@@ -1092,6 +1092,131 @@ ul {
   font-size: 18px;
 }
 
+.btn-more-filters {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-more-filters:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.filters-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.filters-drawer.open {
+  pointer-events: all;
+}
+
+.filters-drawer-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.filters-drawer.open .filters-drawer-backdrop {
+  opacity: 1;
+}
+
+.filters-drawer-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 100%;
+  background: #fff;
+  border-right: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-drawer.open .filters-drawer-panel {
+  transform: translateX(0);
+}
+
+.filters-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.filters-drawer-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+}
+
+.btn-drawer-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.btn-drawer-close:hover {
+  background: var(--border);
+}
+
+.filters-drawer-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filter-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-range {
+  display: flex;
+  gap: 12px;
+}
+
+.filter-range-input {
+  min-width: 0;
+  flex: 1;
+}
+
+.filter-drawer-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  justify-content: flex-end;
+}
+
 @media (max-width: 1024px) {
   .dashboard-table-wrapper {
     overflow-x: auto;
