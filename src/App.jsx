@@ -37,16 +37,16 @@ const CATEGORIES = [
 ]
 
 const PRODUCTS = [
-  { id: 1, category: 'Home & Kitchen', asin: 'B08N5KWB9H', retailer: 'Walmart', retailerPrice: 12.99, amazonPrice: 27.99, fee: 6.40, profit: 8.60, roi: 66, rating: 4.5, reviews: 1243, bsr: 4521, buybox: true, amazonSeller: true, thirdParty: 3, privateLabel: false, fulfillment: 'FBA', image: null },
-  { id: 2, category: 'Toys & Games', asin: 'B09XYZ1234', retailer: 'Target', retailerPrice: 8.50, amazonPrice: 22.99, fee: 5.20, profit: 9.29, roi: 109, rating: 4.7, reviews: 892, bsr: 2103, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
-  { id: 3, category: 'Sports & Outdoors', asin: 'B07ABC5678', retailer: 'Home Depot', retailerPrice: 18.99, amazonPrice: 34.99, fee: 7.80, profit: 8.20, roi: 43, rating: 4.3, reviews: 567, bsr: 8932, buybox: false, amazonSeller: true, thirdParty: 5, privateLabel: false, fulfillment: 'FBM', image: null },
-  { id: 4, category: 'Beauty & Personal Care', asin: 'B08DEF9012', retailer: 'CVS', retailerPrice: 5.99, amazonPrice: 14.99, fee: 3.50, profit: 5.50, roi: 92, rating: 4.6, reviews: 2341, bsr: 1245, buybox: true, amazonSeller: false, thirdParty: 1, privateLabel: true, fulfillment: 'FBA', image: null },
-  { id: 5, category: 'Pet Supplies', asin: 'B06GHIJ3456', retailer: 'Chewy', retailerPrice: 22.49, amazonPrice: 44.99, fee: 9.10, profit: 13.40, roi: 60, rating: 4.8, reviews: 4521, bsr: 987, buybox: true, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBA', image: null },
-  { id: 6, category: 'Electronics', asin: 'B05JKL3456', retailer: 'Best Buy', retailerPrice: 39.99, amazonPrice: 69.99, fee: 12.50, profit: 17.50, roi: 44, rating: 4.4, reviews: 1567, bsr: 3421, buybox: false, amazonSeller: false, thirdParty: 6, privateLabel: true, fulfillment: 'FBM', image: null },
-  { id: 7, category: 'Home & Kitchen', asin: 'B03MNO7890', retailer: 'Walmart', retailerPrice: 15.99, amazonPrice: 29.99, fee: 6.80, profit: 7.20, roi: 45, rating: 4.2, reviews: 892, bsr: 5678, buybox: true, amazonSeller: true, thirdParty: 2, privateLabel: false, fulfillment: 'FBA', image: null },
-  { id: 8, category: 'Health & Household', asin: 'B04PQR1234', retailer: 'Target', retailerPrice: 9.99, amazonPrice: 19.99, fee: 4.20, profit: 5.80, roi: 58, rating: 4.5, reviews: 1234, bsr: 2345, buybox: true, amazonSeller: false, thirdParty: 3, privateLabel: true, fulfillment: 'FBA', image: null },
-  { id: 9, category: 'Baby', asin: 'B02STU5678', retailer: 'Walmart', retailerPrice: 11.49, amazonPrice: 24.99, fee: 5.50, profit: 8.00, roi: 70, rating: 4.6, reviews: 678, bsr: 4567, buybox: false, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBM', image: null },
-  { id: 10, category: 'Automotive', asin: 'B01VWX9012', retailer: 'AutoZone', retailerPrice: 19.99, amazonPrice: 39.99, fee: 8.30, profit: 11.70, roi: 58, rating: 4.7, reviews: 2345, bsr: 1234, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 1, category: 'Home & Kitchen', asin: 'B08N5KWB9H', name: 'Stainless Steel Kitchen Utensil Set', retailer: 'Walmart', retailerPrice: 12.99, amazonPrice: 27.99, fee: 6.40, profit: 8.60, roi: 66, rating: 4.5, reviews: 1243, bsr: 4521, buybox: true, amazonSeller: true, thirdParty: 3, privateLabel: false, fulfillment: 'FBA', image: null },
+  { id: 2, category: 'Toys & Games', asin: 'B09XYZ1234', name: 'Magnetic Building Blocks 100-Piece', retailer: 'Target', retailerPrice: 8.50, amazonPrice: 22.99, fee: 5.20, profit: 9.29, roi: 109, rating: 4.7, reviews: 892, bsr: 2103, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 3, category: 'Sports & Outdoors', asin: 'B07ABC5678', name: 'Adjustable Camping Hammock', retailer: 'Home Depot', retailerPrice: 18.99, amazonPrice: 34.99, fee: 7.80, profit: 8.20, roi: 43, rating: 4.3, reviews: 567, bsr: 8932, buybox: false, amazonSeller: true, thirdParty: 5, privateLabel: false, fulfillment: 'FBM', image: null },
+  { id: 4, category: 'Beauty & Personal Care', asin: 'B08DEF9012', name: 'Korean Skincare Sheet Mask Pack', retailer: 'CVS', retailerPrice: 5.99, amazonPrice: 14.99, fee: 3.50, profit: 5.50, roi: 92, rating: 4.6, reviews: 2341, bsr: 1245, buybox: true, amazonSeller: false, thirdParty: 1, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 5, category: 'Pet Supplies', asin: 'B06GHIJ3456', name: 'Orthopedic Dog Bed Large', retailer: 'Chewy', retailerPrice: 22.49, amazonPrice: 44.99, fee: 9.10, profit: 13.40, roi: 60, rating: 4.8, reviews: 4521, bsr: 987, buybox: true, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBA', image: null },
+  { id: 6, category: 'Electronics', asin: 'B05JKL3456', name: 'Wireless Bluetooth Earbuds Pro', retailer: 'Best Buy', retailerPrice: 39.99, amazonPrice: 69.99, fee: 12.50, profit: 17.50, roi: 44, rating: 4.4, reviews: 1567, bsr: 3421, buybox: false, amazonSeller: false, thirdParty: 6, privateLabel: true, fulfillment: 'FBM', image: null },
+  { id: 7, category: 'Home & Kitchen', asin: 'B03MNO7890', name: 'Ceramic Non-Stick Frying Pan 10in', retailer: 'Walmart', retailerPrice: 15.99, amazonPrice: 29.99, fee: 6.80, profit: 7.20, roi: 45, rating: 4.2, reviews: 892, bsr: 5678, buybox: true, amazonSeller: true, thirdParty: 2, privateLabel: false, fulfillment: 'FBA', image: null },
+  { id: 8, category: 'Health & Household', asin: 'B04PQR1234', name: 'Organic Turmeric Supplement 120 Ct', retailer: 'Target', retailerPrice: 9.99, amazonPrice: 19.99, fee: 4.20, profit: 5.80, roi: 58, rating: 4.5, reviews: 1234, bsr: 2345, buybox: true, amazonSeller: false, thirdParty: 3, privateLabel: true, fulfillment: 'FBA', image: null },
+  { id: 9, category: 'Baby', asin: 'B02STU5678', name: 'Convertible Baby Stroller Travel System', retailer: 'Walmart', retailerPrice: 11.49, amazonPrice: 24.99, fee: 5.50, profit: 8.00, roi: 70, rating: 4.6, reviews: 678, bsr: 4567, buybox: false, amazonSeller: true, thirdParty: 4, privateLabel: false, fulfillment: 'FBM', image: null },
+  { id: 10, category: 'Automotive', asin: 'B01VWX9012', name: 'Car Phone Mount Magnetic Holder', retailer: 'AutoZone', retailerPrice: 19.99, amazonPrice: 39.99, fee: 8.30, profit: 11.70, roi: 58, rating: 4.7, reviews: 2345, bsr: 1234, buybox: true, amazonSeller: false, thirdParty: 2, privateLabel: true, fulfillment: 'FBA', image: null },
 ]
 
 function App() {
@@ -118,16 +118,16 @@ function App() {
   }
 
   const exportToCSV = () => {
-    const headers = ['Product', 'Category', 'BSR', 'ASIN', 'Price', 'AZPrice', 'AZFees', 'Costs', 'AZOffers', 'Profit', 'ROI', 'Amazon Seller', 'Private Label', 'Fulfillment']
+    const headers = ['Product', 'Supplier', 'Category', 'BSR', 'ASIN', 'Cost / Buy Box Price', 'AZPrice', 'Amazon Fees', 'Offers', 'Profit', 'ROI', 'Amazon Seller', 'Private Label', 'Fulfillment']
     const rows = sortedProducts.map(p => [
-      p.asin,
+      p.name,
+      p.retailer,
       p.category,
       p.bsr,
       p.asin,
       p.retailerPrice.toFixed(2),
       p.amazonPrice.toFixed(2),
       p.fee.toFixed(2),
-      p.retailerPrice.toFixed(2),
       p.thirdParty,
       p.profit.toFixed(2),
       `${p.roi}%`,
@@ -249,7 +249,10 @@ function App() {
               <table className="dashboard-table">
                 <thead>
                   <tr>
+                    <th></th>
                     <th>Product</th>
+                    <th>Supplier</th>
+                    <th>ASIN</th>
                     <th className="th-category">
                       <select
                         className="category-dropdown"
@@ -266,15 +269,13 @@ function App() {
                       BSR
                       <button className="sort-btn sort-btn-inline" onClick={() => handleSort('bsr')}><SortIcon column="bsr" /></button>
                     </th>
-                    <th>ASIN</th>
                     <th className="th-sort">
-                      Price
+                      Cost / Buy Box Price
                       <button className="sort-btn sort-btn-inline" onClick={() => handleSort('retailerPrice')}><SortIcon column="retailerPrice" /></button>
                     </th>
                     <th>AZPrice</th>
-                    <th>AZFees</th>
-                    <th>Costs</th>
-                    <th>AZOffers</th>
+                      <th>Amazon Fees</th>
+                      <th>Offers</th>
                     <th className="th-sort">
                       Profit
                       <button className="sort-btn sort-btn-inline" onClick={() => handleSort('profit')}><SortIcon column="profit" /></button>
@@ -292,14 +293,19 @@ function App() {
                       <td>
                         <div className="product-img"></div>
                       </td>
+                      <td className="product-link-cell">
+                        <a href={`https://www.amazon.com/dp/${product.asin}`} target="_blank" rel="noopener noreferrer" className="product-name-link">{product.name}</a>
+                      </td>
+                      <td>
+                        <a href={`https://${product.retailer.toLowerCase().replace(/ /g, '')}.com`} target="_blank" rel="noopener noreferrer" className="supplier-name-link">{product.retailer}</a>
+                      </td>
+                      <td className="asin-cell">{product.asin}</td>
                       <td>{product.category}</td>
                       <td>#{product.bsr.toLocaleString()}</td>
-                      <td className="asin-cell">{product.asin}</td>
                       <td>${product.retailerPrice.toFixed(2)}</td>
-                      <td>${product.amazonPrice.toFixed(2)}</td>
-                      <td>${product.fee.toFixed(2)}</td>
-                      <td>${product.retailerPrice.toFixed(2)}</td>
-                      <td>{product.thirdParty}</td>
+                       <td>${product.amazonPrice.toFixed(2)}</td>
+                       <td>${product.fee.toFixed(2)}</td>
+                       <td>{product.thirdParty}</td>
                       <td className="positive">${product.profit.toFixed(2)}</td>
                       <td className={`${product.roi >= 30 ? 'positive' : ''}`}>{product.roi}%</td>
                       <td>
@@ -324,7 +330,7 @@ function App() {
                 </tbody>
                 {expandedRow && (
                   <tr className="expanded-row">
-                    <td colSpan="12">
+                     <td colSpan="13">
                       <div className="expanded-panel">
                         <div className="expanded-header">
                           <span className="expanded-asin">ASIN: {PRODUCTS.find(p => p.id === expandedRow)?.asin}</span>
