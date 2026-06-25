@@ -523,8 +523,21 @@ setProfitMin('')
                     <span className="badge">{product.fulfillment}</span>
                   </div>
                   <div className="product-card-content">
-                    <div className="product-card-image">
-                      <img src={`https://placehold.co/120x120/e2e8f0/cbd5e1?text=${encodeURIComponent(product.name.substring(0,10))}`} alt={product.name} />
+                    <div className="product-images">
+                      <div className="product-image-wrapper">
+                        <a href={`https://www.amazon.com/dp/${product.asin}`} target="_blank" rel="noopener noreferrer" className="product-image-label">Amazon</a>
+                        <div className="product-image-circle">
+                          <img src={product.image || `https://placehold.co/80x80/e2e8f0/cbd5e1?text=${encodeURIComponent('Amazon')}`} alt={product.name} />
+                        </div>
+                      </div>
+                      <div className="product-image-wrapper">
+                        <a href={`https://${product.retailer.toLowerCase().replace(/ /g, '')}.com`} target="_blank" rel="noopener noreferrer" className="product-image-label">
+                          {product.retailer}
+                        </a>
+                        <div className="product-image-circle">
+                          <img src={product.image || `https://placehold.co/80x80/e2e8f0/cbd5e1?text=${encodeURIComponent(product.retailer)}`} alt={product.retailer} />
+                        </div>
+                      </div>
                     </div>
                     <div className="product-card-details">
                       <h3 className="product-card-title">
