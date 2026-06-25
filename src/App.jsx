@@ -72,8 +72,7 @@ function App() {
   const [roiMax, setRoiMax] = useState('')
   const [monthlySalesMin, setMonthlySalesMin] = useState('')
   const [monthlySalesMax, setMonthlySalesMax] = useState('')
-  const [leadScoreMin, setLeadScoreMin] = useState('1')
-  const [leadScoreMax, setLeadScoreMax] = useState('10')
+  const [leadScore, setLeadScore] = useState('')
   const [fbaPriceMin, setFbaPriceMin] = useState('')
   const [fbaPriceMax, setFbaPriceMax] = useState('')
   const [fbmPriceMin, setFbmPriceMin] = useState('')
@@ -136,8 +135,7 @@ function App() {
     if (roiMax && product.roi > parseInt(roiMax)) return false
     if (monthlySalesMin && product.monthlySales < parseInt(monthlySalesMin)) return false
     if (monthlySalesMax && product.monthlySales > parseInt(monthlySalesMax)) return false
-    if (leadScoreMin && product.leadScore < parseInt(leadScoreMin)) return false
-    if (leadScoreMax && product.leadScore > parseInt(leadScoreMax)) return false
+    if (leadScore && product.leadScore < parseInt(leadScore)) return false
     if (fbaPriceMin && product.fbaPrice < parseFloat(fbaPriceMin)) return false
     if (fbaPriceMax && product.fbaPrice > parseFloat(fbaPriceMax)) return false
     if (fbmPriceMin && product.fbmPrice < parseFloat(fbmPriceMin)) return false
@@ -292,6 +290,14 @@ function App() {
               </div>
               <div className="filter-group">
                 <span className="results-count">{filteredProducts.length} results</span>
+              </div>
+              <div className="filter-group-icons">
+                <button className="btn-icon" title="Saved Leads">
+                  ❤️
+                </button>
+                <button className="btn-icon" title="History">
+                  🕒
+                </button>
               </div>
             </div>
 
@@ -502,26 +508,18 @@ function App() {
                     </div>
                   </div>
                   <div className="filter-group-vertical">
-                    <label className="filter-label">Lead Score</label>
-                    <div className="filter-range">
-                      <input
-                        type="number"
-                        min="1"
-                        max="10"
-                        className="filter-input filter-range-input"
-                        placeholder="Min"
-                        value={leadScoreMin}
-                        onChange={(e) => setLeadScoreMin(e.target.value)}
-                      />
-                      <input
-                        type="number"
-                        min="1"
-                        max="10"
-                        className="filter-input filter-range-input"
-                        placeholder="Max"
-                        value={leadScoreMax}
-                        onChange={(e) => setLeadScoreMax(e.target.value)}
-                      />
+                    <label className="filter-label">Lead Score: {leadScore ? `${leadScore}+` : 'Any'}</label>
+                    <input
+                      type="range"
+                      min="1"
+                      max="10"
+                      value={leadScore || 1}
+                      onChange={(e) => setLeadScore(e.target.value)}
+                      className="lead-score-slider"
+                    />
+                    <div className="slider-track">
+                      <span>1</span>
+                      <span>10</span>
                     </div>
                   </div>
                   <div className="filter-drawer-actions">
@@ -536,13 +534,12 @@ function App() {
                       setAmazonPriceMax('')
                       setProfitMin('')
                       setProfitMax('')
-                      setRoiMin('')
-                      setRoiMax('')
-                      setMonthlySalesMin('')
-                      setMonthlySalesMax('')
-                      setLeadScoreMin('')
-                      setLeadScoreMax('')
-                      setFbaPriceMin('')
+setRoiMin('')
+                       setRoiMax('')
+                       setMonthlySalesMin('')
+                       setMonthlySalesMax('')
+                       setLeadScore('')
+                       setFbaPriceMin('')
                       setFbaPriceMax('')
                       setFbmPriceMin('')
                       setFbmPriceMax('')
