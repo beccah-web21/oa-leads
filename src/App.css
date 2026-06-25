@@ -1142,7 +1142,7 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
-  width: 360px;
+  width: 480px;
   height: 100%;
   background: #fff;
   border-right: 1px solid var(--border);
@@ -1192,6 +1192,8 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .filter-group-vertical {
