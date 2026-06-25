@@ -77,37 +77,8 @@ function App() {
   const [fbaPriceMax, setFbaPriceMax] = useState('')
   const [fbmPriceMin, setFbmPriceMin] = useState('')
   const [fbmPriceMax, setFbmPriceMax] = useState('')
-  const [sortColumn, setSortColumn] = useState(null)
-  const [sortDirection, setSortDirection] = useState('asc')
   const [expandedRow, setExpandedRow] = useState(null)
   const [favorites, setFavorites] = useState([])
-
-  const handleSort = (column) => {
-    if (sortColumn === column) {
-      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc')
-    } else {
-      setSortColumn(column)
-      setSortDirection('asc')
-    }
-  }
-
-  const sortProducts = (products) => {
-    if (!sortColumn) return products
-
-    return [...products].sort((a, b) => {
-      let aVal = a[sortColumn]
-      let bVal = b[sortColumn]
-
-      if (typeof aVal === 'string') {
-        aVal = aVal.toLowerCase()
-        bVal = bVal.toLowerCase()
-      }
-
-      if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1
-      if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1
-      return 0
-    })
-  }
 
   const filteredProducts = PRODUCTS.filter(product => {
     const matchesSearch = product.asin.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -144,8 +115,6 @@ function App() {
     return true
   })
 
-  const sortedProducts = sortProducts(filteredProducts)
-
   const toggleExpand = (id) => {
     setExpandedRow(expandedRow === id ? null : id)
   }
@@ -156,56 +125,45 @@ function App() {
     )
   }
 
-  const exportToCSV = () => {
-    const headers = ['Product', 'Supplier', 'Category', 'BSR', 'ASIN', 'Cost / Buy Box Price', 'AZPrice', 'FBA Price', 'FBM Price', 'Amazon Fees', 'Offers', 'Profit', 'ROI', 'Monthly Sales', 'Lead Score', 'Amazon Seller', 'Private Label', 'Fulfillment']
-    const rows = sortedProducts.map(p => [
-      p.name,
-      p.retailer,
-      p.category,
-      p.bsr,
-      p.asin,
-      p.retailerPrice.toFixed(2),
-      p.amazonPrice.toFixed(2),
-      p.fbaPrice.toFixed(2),
-      p.fbmPrice.toFixed(2),
-      p.fee.toFixed(2),
-      p.thirdParty,
-      p.profit.toFixed(2),
-      `${p.roi}%`,
-      p.monthlySales,
-      p.leadScore,
-      p.amazonSeller ? 'Yes' : 'No',
-      p.privateLabel ? 'Yes' : 'No',
-      p.fulfillment
-    ])
+const exportToCSV = () => {
+     const headers = ['Product', 'Supplier', 'Category', 'BSR', 'ASIN', 'Cost / Buy Box Price', 'AZPrice', 'FBA Price', 'FBM Price', 'Amazon Fees', 'Offers', 'Profit', 'ROI', 'Monthly Sales', 'Lead Score', 'Amazon Seller', 'Private Label', 'Fulfillment']
+     const rows = filteredProducts.map(p => [
+       p.name,
+       p.retailer,
+       p.category,
+       p.bsr,
+       p.asin,
+       p.retailerPrice.toFixed(2),
+       p.amazonPrice.toFixed(2),
+       p.fbaPrice.toFixed(2),
+       p.fbmPrice.toFixed(2),
+       p.fee.toFixed(2),
+       p.thirdParty,
+       p.profit.toFixed(2),
+       `${p.roi}%`,
+       p.monthlySales,
+       p.leadScore,
+       p.amazonSeller ? 'Yes' : 'No',
+       p.privateLabel ? 'Yes' : 'No',
+       p.fulfillment
+     ])
 
-    let csvContent = 'data:text/csv;charset=utf-8,'
-    csvContent += headers.join(',') + '\r\n'
-    rows.forEach(row => {
-      csvContent += row.join(',') + '\r\n'
-    })
+     let csvContent = 'data:text/csv;charset=utf-8,'
+     csvContent += headers.join(',') + '\r\n'
+     rows.forEach(row => {
+       csvContent += row.join(',') + '\r\n'
+     })
 
-    const encodedUri = encodeURI(csvContent)
-    const link = document.createElement('a')
-    link.setAttribute('href', encodedUri)
-    link.setAttribute('download', 'sourcelead_products.csv')
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+     const encodedUri = encodeURI(csvContent)
+     const link = document.createElement('a')
+     link.setAttribute('href', encodedUri)
+     link.setAttribute('download', 'sourcelead_products.csv')
+     document.body.appendChild(link)
+     link.click()
+     document.body.removeChild(link)
+   }
 
-  const SortIcon = ({ column }) => {
-    if (sortColumn !== column) {
-      return <span className="sort-icon sort-inactive">⇅</span>
-    }
-    return (
-      <span className="sort-icon sort-active">
-        {sortDirection === 'asc' ? '↑' : '↓'}
-      </span>
-    )
-  }
-
-  if (showDashboard) {
+   if (showDashboard) {
     return (
       <div className="site dashboard-view">
         <nav className="navbar">
@@ -537,9 +495,9 @@ function App() {
                       setOffersMax('')
                       setAmazonPriceMin('')
                       setAmazonPriceMax('')
-                      setProfitMin('')
-                      setProfitMax('')
-setRoiMin('')
+setProfitMin('')
+                       setProfitMax('')
+                       setRoiMin('')
                        setRoiMax('')
                        setMonthlySalesMin('')
                        setMonthlySalesMax('')
@@ -556,123 +514,79 @@ setRoiMin('')
               </div>
             </div>
 
-            <div className="dashboard-table-wrapper">
-              <table className="dashboard-table">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Product</th>
-                    <th>Supplier</th>
-                    <th>ASIN</th>
-                    <th>Category</th>
-                    <th className="th-sort">
-                      BSR
-                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('bsr')}><SortIcon column="bsr" /></button>
-                    </th>
-                    <th className="th-sort">
-                      Cost / Buy Box Price
-                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('retailerPrice')}><SortIcon column="retailerPrice" /></button>
-                    </th>
-                    <th>AZPrice</th>
-                    <th>FBA Price</th>
-                    <th>FBM Price</th>
-                    <th>Amazon Fees</th>
-                    <th>Offers</th>
-                    <th className="th-sort">
-                      Profit
-                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('profit')}><SortIcon column="profit" /></button>
-                    </th>
-                    <th className="th-sort">
-                      ROI
-                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('roi')}><SortIcon column="roi" /></button>
-                    </th>
-                    <th className="th-sort">
-                      Monthly Sales
-                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('monthlySales')}><SortIcon column="monthlySales" /></button>
-                    </th>
-                    <th className="th-sort">
-                      Lead Score
-                      <button className="sort-btn sort-btn-inline" onClick={() => handleSort('leadScore')}><SortIcon column="leadScore" /></button>
-                    </th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {sortedProducts.map(product => (
-                    <tr key={product.id}>
-                      <td>
-                        <div className="product-img"></div>
-                      </td>
-                      <td className="product-link-cell">
-                        <a href={`https://www.amazon.com/dp/${product.asin}`} target="_blank" rel="noopener noreferrer" className="product-name-link">{product.name}</a>
-                      </td>
-                      <td>
-                        <a href={`https://${product.retailer.toLowerCase().replace(/ /g, '')}.com`} target="_blank" rel="noopener noreferrer" className="supplier-name-link">{product.retailer}</a>
-                      </td>
-                      <td className="asin-cell">{product.asin}</td>
-                      <td>{product.category}</td>
-                      <td>#{product.bsr.toLocaleString()}</td>
-                      <td>${product.retailerPrice.toFixed(2)}</td>
-                      <td>${product.amazonPrice.toFixed(2)}</td>
-                      <td>${product.fbaPrice.toFixed(2)}</td>
-                      <td>${product.fbmPrice.toFixed(2)}</td>
-                      <td>${product.fee.toFixed(2)}</td>
-                      <td>{product.thirdParty}</td>
-                      <td className="positive">${product.profit.toFixed(2)}</td>
-                      <td className={`${product.roi >= 30 ? 'positive' : ''}`}>{product.roi}%</td>
-                      <td>{product.monthlySales.toLocaleString()}</td>
-                      <td className={`${product.leadScore >= 7 ? 'positive' : ''}`}>{product.leadScore}/10</td>
-                      <td>
-                        <div className="action-buttons">
-                          <button
-                            className="btn-action"
-                            onClick={() => toggleExpand(product.id)}
-                          >
-                            View
-                          </button>
-                          <button
-                            className={`btn-action btn-favorite ${favorites.includes(product.id) ? 'favorited' : ''}`}
-                            onClick={() => toggleFavorite(product.id)}
-                            title={favorites.includes(product.id) ? 'Remove from favorites' : 'Add to favorites'}
-                          >
-                            {favorites.includes(product.id) ? '❤️' : '🤍'}
-                          </button>
+            <div className="products-grid">
+              {filteredProducts.map(product => (
+                <div key={product.id} className="product-card">
+                  <div className="product-card-badges">
+                    <span className="badge badge-success">{product.monthlySales.toLocaleString()} sales</span>
+                    <span className="badge">{product.thirdParty} offers</span>
+                    <span className="badge">{product.fulfillment}</span>
+                  </div>
+                  <div className="product-card-content">
+                    <div className="product-card-image">
+                      <img src={`https://placehold.co/120x120/e2e8f0/cbd5e1?text=${encodeURIComponent(product.name.substring(0,10))}`} alt={product.name} />
+                    </div>
+                    <div className="product-card-details">
+                      <h3 className="product-card-title">
+                        <a href={`https://www.amazon.com/dp/${product.asin}`} target="_blank" rel="noopener noreferrer">{product.name}</a>
+                      </h3>
+                      <div className="product-card-meta">
+                        <span className="meta-item">{product.category}</span>
+                        <span className="meta-separator">•</span>
+                        <span className="meta-item">ASIN: {product.asin}</span>
+                        <span className="meta-separator">•</span>
+                        <span className="meta-item">⭐ {product.rating} ({product.reviews})</span>
+                      </div>
+                      <div className="product-card-price">${product.amazonPrice.toFixed(2)}</div>
+                      <div className="product-card-kpis">
+                        <div className="kpi-card">
+                          <div className="kpi-value positive">${product.profit.toFixed(2)}</div>
+                          <div className="kpi-label">Profit</div>
                         </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-                {expandedRow && (
-                  <tr className="expanded-row">
-                     <td colSpan="17">
-                      <div className="expanded-panel">
-                        <div className="expanded-header">
-                          <span className="expanded-asin">ASIN: {PRODUCTS.find(p => p.id === expandedRow)?.asin}</span>
-                          <button className="btn-expanded-close" onClick={() => setExpandedRow(null)}>✕</button>
+                        <div className="kpi-card">
+                          <div className="kpi-value">{product.roi}%</div>
+                          <div className="kpi-label">ROI</div>
                         </div>
-                        <div className="expanded-tools">
-                          <a href={`https://keepa.com/#!product/1-${PRODUCTS.find(p => p.id === expandedRow)?.asin}`} target="_blank" rel="noopener noreferrer" className="tool-btn">
-                            <span className="tool-icon">📊</span>
-                            <span>Keepa</span>
-                          </a>
-                          <button className="tool-btn" onClick={() => toggleFavorite(expandedRow)}>
-                            <span className="tool-icon">{favorites.includes(expandedRow) ? '❤️' : '🤍'}</span>
-                            <span>{favorites.includes(expandedRow) ? 'Saved' : 'Favorite'}</span>
-                          </button>
-                          <a href={`https://www.amazon.com/dp/${PRODUCTS.find(p => p.id === expandedRow)?.asin}`} target="_blank" rel="noopener noreferrer" className="tool-btn">
-                            <span className="tool-icon">🛒</span>
-                            <span>View on Amazon</span>
-                          </a>
-                          <a href={`https://${PRODUCTS.find(p => p.id === expandedRow)?.retailer.toLowerCase().replace(' ', '')}.com`} target="_blank" rel="noopener noreferrer" className="tool-btn">
-                            <span className="tool-icon">🏪</span>
-                            <span>View Retailer</span>
-                          </a>
+                        <div className="kpi-card">
+                          <div className="kpi-value">#{product.bsr.toLocaleString()}</div>
+                          <div className="kpi-label">BSR</div>
+                        </div>
+                        <div className="kpi-card">
+                          <div className="kpi-value positive">${product.retailerPrice.toFixed(2)}</div>
+                          <div className="kpi-label">Buy Box</div>
                         </div>
                       </div>
-                    </td>
-                  </tr>
-                )}
-              </table>
+                    </div>
+                    <div className="product-card-chart">
+                      <div className="mini-chart">
+                        <div className="chart-bar" style={{height: '60%'}}></div>
+                        <div className="chart-bar" style={{height: '80%'}}></div>
+                        <div className="chart-bar" style={{height: '40%'}}></div>
+                        <div className="chart-bar" style={{height: '90%'}}></div>
+                        <div className="chart-bar" style={{height: '70%'}}></div>
+                      </div>
+                      <div className="smart-alerts">
+                        <span className="alert-badge">High Demand</span>
+                        <span className="alert-badge">Low Competition</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="product-card-actions">
+                    <button className="btn btn-secondary" onClick={() => toggleExpand(product.id)}>
+                      View Details
+                    </button>
+                    <button 
+                      className={`btn-icon ${favorites.includes(product.id) ? 'favorited' : ''}`}
+                      onClick={() => toggleFavorite(product.id)}
+                      title={favorites.includes(product.id) ? 'Remove from favorites' : 'Add to favorites'}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              ))}
               {filteredProducts.length === 0 && (
                 <div className="no-results">No products match your filters. Try adjusting your criteria.</div>
               )}
