@@ -168,7 +168,7 @@ const exportToCSV = () => {
       <div className="site dashboard-view">
         <nav className="navbar">
           <div className="nav-inner">
-            <div className="logo">Source<span>Lead</span></div>
+            <div className="logo">Arbi<span>Scout</span></div>
             <ul className="nav-links">
               <li><a href="#" onClick={(e) => { e.preventDefault(); setShowDashboard(false) }}>Home</a></li>
               <li><a href="#features">Features</a></li>
@@ -614,7 +614,7 @@ setProfitMin('')
     <div className="site">
       <nav className="navbar">
         <div className="nav-inner">
-          <div className="logo">Source<span>Lead</span></div>
+          <div className="logo">Arbi<span>Scout</span></div>
           <ul className="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
@@ -626,7 +626,7 @@ setProfitMin('')
         </div>
       </nav>
 
-      <section className="hero">
+<section className="hero">
         <div className="hero-inner">
           <div className="hero-badge">Automated Product Sourcing for Amazon</div>
           <h1>Find profitable products <span className="accent">instantly</span></h1>
@@ -635,7 +635,7 @@ setProfitMin('')
             <a href="#cta" className="btn btn-primary">Start Free Trial</a>
             <a href="#how-it-works" className="btn btn-secondary">See How It Works</a>
           </div>
-          <div className="hero-stats">
+<div className="hero-stats">
             <div className="stat">
               <div className="stat-number">500K+</div>
               <div className="stat-label">Products Scanned</div>
@@ -652,110 +652,10 @@ setProfitMin('')
         </div>
       </section>
 
-      <section id="features" className="section">
-        <div className="container">
-          <h2>Everything you need to source winning products</h2>
-          <p className="section-subtitle">From retail arbitrage to wholesale — all in one platform.</p>
-          <div className="features-grid">
-            <div className="feature">
-              <div className="feature-icon">🤖</div>
-              <h3>AI-Powered Scanning</h3>
-              <p>Our algorithm scans hundreds of retailers, distributors, and wholesale suppliers 24/7 to find profitable products.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">📊</div>
-              <h3>Real-Time Profit Data</h3>
-              <p>See ROI, profit margins, Amazon fees, and estimated monthly sales before you buy. Make data-driven decisions.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">🏪</div>
-              <h3>Retail + Wholesale</h3>
-              <p>Source from Walmart, Target, Home Depot, Costco, and major distributors. All sourcing methods in one place.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">🔍</div>
-              <h3>Advanced Filters</h3>
-              <p>Filter by ROI, BSR, category, price range, AZ offers, supplier, and more. Find exactly what fits your strategy.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">📱</div>
-              <h3>Chrome Extension</h3>
-              <p>Scan products on Amazon and Walmart in real time. Get instant profitability insights without leaving the page.</p>
-            </div>
-            <div className="feature">
-              <div className="feature-icon">📦</div>
-              <h3>Out-of-Stock Finder</h3>
-              <p>Discover products that recently went out of stock on Amazon. Be the first seller when demand returns.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-alt">
-        <div className="container">
-          <h2>How It Works</h2>
-          <p className="section-subtitle">From signup to your first profitable deal in minutes.</p>
-          <div className="steps">
-            <div className="step">
-              <div className="step-number">1</div>
-              <h3>Create Account</h3>
-              <p>Sign up for free. No credit card required to start your 7-day trial.</p>
-            </div>
-            <div className="step">
-              <div className="step-number">2</div>
-              <h3>Set Filters</h3>
-              <p>Choose your criteria: minimum ROI, price range, categories, suppliers, and more.</p>
-            </div>
-            <div className="step">
-              <div className="step-number">3</div>
-              <h3>Get Leads</h3>
-              <p>Our AI scans suppliers and delivers a list of profitable products with all the data you need.</p>
-            </div>
-            <div className="step">
-              <div className="step-number">4</div>
-              <h3>Buy & List</h3>
-              <p>Visit the supplier, purchase the product, and list it on Amazon. FBA handles the rest.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <h2>Why choose SourceLead?</h2>
-          <div className="benefits-grid">
-            <div className="benefit">
-              <h3>Save 20+ Hours Per Week</h3>
-              <p>Stop manually browsing retail sites. Our automation does the heavy lifting so you can focus on scaling.</p>
-            </div>
-            <div className="benefit">
-              <h3>Higher Profit Margins</h3>
-              <p>Access exclusive deals and out-of-stock products before competitors. Find products with 15%–50% ROI.</p>
-            </div>
-            <div className="benefit">
-              <h3>All-in-One Dashboard</h3>
-              <p>Retail arbitrage, wholesale, out-of-stock items, and Amazon flips — all managed from a single clean interface.</p>
-            </div>
-            <div className="benefit">
-              <h3>Competitive Edge</h3>
-              <p>Hide products from other users. Get exclusive leads that no one else sees. Beat the competition.</p>
-            </div>
-            <div className="benefit">
-              <h3>Beginner Friendly</h3>
-              <p>No experience needed. Our tutorials, webinars, and community guide you from zero to your first sale.</p>
-            </div>
-            <div className="benefit">
-              <h3>Cancel Anytime</h3>
-              <p>Start with a free 7-day trial. No commitment. If it doesn't pay for itself, cancel with one click.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="cta" className="section cta-section">
         <div className="container">
           <h2>Ready to automate your sourcing?</h2>
-          <p>Join thousands of sellers who save time and increase profits with SourceLead. Start your free 7-day trial today.</p>
+          <p>Join thousands of sellers who save time and increase profits with ArbiScout. Start your free 7-day trial today.</p>
           <a href="#" className="btn btn-primary btn-large">Start Free Trial</a>
           <p className="cta-note">No credit card required. Cancel anytime.</p>
         </div>
@@ -766,12 +666,12 @@ setProfitMin('')
           <h2>Frequently Asked Questions</h2>
           <div className="faq-list">
             <details className="faq-item">
-              <summary>What is the difference between SourceLead and a lead list?</summary>
-              <p>Lead lists are manually curated and quickly become saturated. SourceLead uses an AI algorithm that scans hundreds of suppliers in real time, delivering fresh, profitable products continuously — not a static PDF.</p>
+              <summary>What is the difference between ArbiScout and a lead list?</summary>
+              <p>Lead lists are manually curated and quickly become saturated. ArbiScout uses an AI algorithm that scans hundreds of suppliers in real time, delivering fresh, profitable products continuously — not a static PDF.</p>
             </details>
             <details className="faq-item">
               <summary>Do I need to be an experienced Amazon seller?</summary>
-              <p>No. SourceLead is designed for both beginners and experienced sellers. We provide tutorials, webinars, and a supportive community to help you succeed.</p>
+              <p>No. ArbiScout is designed for both beginners and experienced sellers. We provide tutorials, webinars, and a supportive community to help you succeed.</p>
             </details>
             <details className="faq-item">
               <summary>How does the free trial work?</summary>
@@ -783,11 +683,11 @@ setProfitMin('')
             </details>
             <details className="faq-item">
               <summary>Can I hide products from other users?</summary>
-              <p>Yes. Our exclusive hide filter lets you hide products from other SourceLead users, giving you a competitive edge on the sourcing leads.</p>
+              <p>Yes. Our exclusive hide filter lets you hide products from other ArbiScout users, giving you a competitive edge on the sourcing leads.</p>
             </details>
             <details className="faq-item">
               <summary>What if I don't see profit within the trial?</summary>
-              <p>We offer a 30-day money-back guarantee. If SourceLead doesn't pay for itself, we'll refund your first payment. No questions asked.</p>
+              <p>We offer a 30-day money-back guarantee. If ArbiScout doesn't pay for itself, we'll refund your first payment. No questions asked.</p>
             </details>
           </div>
         </div>
@@ -797,7 +697,7 @@ setProfitMin('')
         <div className="container">
           <div className="footer-inner">
             <div className="footer-brand">
-              <div className="logo">Source<span>Lead</span></div>
+              <div className="logo">Arbi<span>Scout</span></div>
               <p>Automated product sourcing for Amazon FBA and arbitrage sellers.</p>
             </div>
             <div className="footer-links">
@@ -810,7 +710,7 @@ setProfitMin('')
               <div className="footer-col">
                 <h4>Support</h4>
                 <a href="#faq">FAQ</a>
-                <a href="mailto:support@sourcelead.com">Contact</a>
+                <a href="mailto:support@arbiscout.com">Contact</a>
                 <a href="#">Community</a>
               </div>
               <div className="footer-col">
@@ -822,7 +722,7 @@ setProfitMin('')
             </div>
           </div>
           <div className="footer-bottom">
-            <p>© 2026 SourceLead. All rights reserved.</p>
+            <p>© 2026 ArbiScout. All rights reserved.</p>
           </div>
         </div>
       </footer>
